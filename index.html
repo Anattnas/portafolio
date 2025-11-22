@@ -4,67 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Educativo - José Jesús Valdez Santana</title>
+    <title>Portafolio - José Jesús Valdez Santana</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
 
-    <header>
+    <header class="header-fixed">
         <nav>
             <ul>
-                <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#formacion">Formación</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sobre-mi"><i class="fa-solid fa-user"></i> Sobre mí</a></li>
+                <li><a href="#experiencia"><i class="fa-solid fa-briefcase"></i> Experiencia</a></li>
+                <li><a href="#formacion"><i class="fa-solid fa-graduation-cap"></i> Formación</a></li>
+                <li><a href="#habilidades"><i class="fa-solid fa-code"></i> Habilidades</a></li>
+                <li><a href="#cursos"><i class="fa-solid fa-certificate"></i> Cursos</a></li>
+                <li><a href="#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
             </ul>
-        </nav>
 
-        <h1>José Jesús Valdez Santana</h1>
-        <p>Ingeniero en Sistemas de Información</p>
+            <button id="modoBtn"><i class="fa-solid fa-moon"></i></button>
+        </nav>
     </header>
 
+    <section class="hero">
+        <img src="yo.jpg" alt="Foto de José" class="foto-perfil">
+        <h1 class="fade-in">José Jesús Valdez Santana</h1>
+        <p class="fade-in-delayed">Ingeniero en Sistemas de Información</p>
+    </section>
 
     <section id="sobre-mi">
         <h2>Sobre mí</h2>
         <p>
-            Soy un ingeniero en sistemas con experiencia en redacción académica, diseño editorial
-            y liderazgo de equipos dentro de una startup educativa. Me interesa el desarrollo backend,
-            bases de datos, QA y la mejora continua.
+            Soy un ingeniero en sistemas con experiencia en redacción académica,
+            diseño editorial y liderazgo dentro de una startup educativa.
+            Me interesa el desarrollo backend, QA, bases de datos y la mejora continua.
         </p>
     </section>
-
 
     <section id="experiencia">
         <h2>Experiencia Profesional</h2>
 
-        <div class="card">
+        <div class="card anim">
             <h3>Editorial EduNova – Líder de Equipo (2025 - Actualidad)</h3>
-            <p>
-                Coordinación de un equipo multidisciplinario, aseguramiento de calidad,
-                diseño instruccional y gestión de proyectos educativos.
-            </p>
+            <p>Coordinación de 5–7 profesores, aseguramiento de calidad, diseño instruccional y gestión de proyectos
+                educativos.</p>
         </div>
 
-        <div class="card">
+        <div class="card anim">
             <h3>Diseñador Editorial – EduNova (2024 - 2025)</h3>
-            <p>
-                Diseño y maquetación de libros educativos, integración de recursos
-                visuales y material didáctico.
-            </p>
+            <p>Diseño y maquetación de libros educativos, recursos multimedia y materiales didácticos.</p>
         </div>
 
-        <div class="card">
+        <div class="card anim">
             <h3>Redactor Académico – EduNova (2023 - 2024)</h3>
-            <p>
-                Creación de contenido educativo en áreas de ciencias exactas y tecnología.
-                Publicación de materiales académicos con código QR interactivo.
-            </p>
+            <p>Autor de contenidos académicos para áreas STEM. Integración de códigos QR y actividades interactivas.</p>
         </div>
     </section>
-
 
     <section id="formacion">
         <h2>Formación Académica</h2>
@@ -73,7 +71,6 @@
             <li><strong>Bachillerato Técnico en Informática</strong> — CECyTEs Maríachi III (2012)</li>
         </ul>
     </section>
-
 
     <section id="habilidades">
         <h2>Habilidades Técnicas y Blandas</h2>
@@ -86,31 +83,29 @@
         </ul>
     </section>
 
-
     <section id="cursos">
         <h2>Cursos y Certificaciones</h2>
         <ul>
-            <li>Certificación en Programación — Universidad de Sonora</li>
-            <li>Curso de Bases de Datos (SQL) — Universidad de Sonora</li>
-            <li>Curso de Git y GitHub — Universidad de Sonora</li>
-            <li>Taller de Seguridad en Bases de Datos</li>
+            <li>Programación — Universidad de Sonora</li>
+            <li>Bases de Datos SQL — Universidad de Sonora</li>
+            <li>Git y GitHub — Universidad de Sonora</li>
+            <li>Seguridad en Bases de Datos</li>
             <li>Reparación de celulares y mantenimiento de computadoras</li>
         </ul>
     </section>
 
-
     <section id="contacto">
         <h2>Contacto</h2>
-        <p>Email: anattnas@gmail.com</p>
-        <p>Teléfono: 6624962859</p>
-        <p>Ubicación: Hermosillo, Sonora, México</p>
+        <p><i class="fa-solid fa-envelope"></i> Email: anattnas@gmail.com</p>
+        <p><i class="fa-solid fa-phone"></i> Teléfono: 6624962859</p>
+        <p><i class="fa-solid fa-location-dot"></i> Hermosillo, Sonora, México</p>
     </section>
 
-
     <footer>
-        <p>© 2025 Portafolio de José Jesús Valdez Santana</p>
+        <p>© 2025 — Portafolio de José Jesús Valdez Santana</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
