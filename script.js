@@ -1,58 +1,71 @@
 /* ============================
-   MODO OSCURO
+   INICIAR CUANDO CARGUE HTML
 =============================== */
 
-// Detectar si el usuario ya tenía modo oscuro guardado
-if (localStorage.getItem("modo") === "dark") {
-    document.body.classList.add("dark");
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-document.getElementById("modoBtn").addEventListener("click", () => {
-    document.body.classList.toggle("dark");
+    /* ============================
+       MODO OSCURO
+    =============================== */
 
-    // Guardar preferencia
-    if (document.body.classList.contains("dark")) {
-        localStorage.setItem("modo", "dark");
-    } else {
-        localStorage.setItem("modo", "light");
+    if (localStorage.getItem("modo") === "dark") {
+        document.body.classList.add("dark");
     }
-});
 
+    const btnModo = document.getElementById("modoBtn");
 
-/* ============================
-   ANIMACIÓN AL HACER SCROLL
-=============================== */
+    if (btnModo) {
+        btnModo.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
 
-const elementos = document.querySelectorAll(".anim");
+            if (document.body.classList.contains("dark")) {
+                localStorage.setItem("modo", "dark");
+            } else {
+                localStorage.setItem("modo", "light");
+            }
+        });
+    }
 
-function mostrarAnimacion() {
-    elementos.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 50) {
-            el.style.animation = "subir 0.8s forwards";
-        }
-    });
-}
+    /* ============================
+       ANIMACIÓN SCROLL
+    =============================== */
 
-window.addEventListener("scroll", mostrarAnimacion);
-mostrarAnimacion();
+    const elementos = document.querySelectorAll(".anim");
 
+    function mostrarAnimacion() {
+        elementos.forEach(el => {
+            const rect = el.getBoundingClientRect();
 
+            if (rect.top < window.innerHeight - 50) {
+                el.style.animation = "subir 0.8s forwards";
+            }
+        });
+    }
 
-/* ============================
-   SMOOTH SCROLL (Navegación suave)
-=============================== */
+    window.addEventListener("scroll", mostrarAnimacion);
+    mostrarAnimacion();
 
-document.querySelectorAll("nav a").forEach(enlace => {
-    enlace.addEventListener("click", function (e) {
-        e.preventDefault();
-        const seccion = document.querySelector(this.getAttribute("href"));
-        window.scrollTo({
-            top: seccion.offsetTop - 70,
-            behavior: "smooth"
+    /* ============================
+       SMOOTH SCROLL
+    =============================== */
+
+    document.querySelectorAll("nav a").forEach(enlace => {
+        enlace.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const seccion = document.querySelector(this.getAttribute("href"));
+
+            if (seccion) {
+                window.scrollTo({
+                    top: seccion.offsetTop - 70,
+                    behavior: "smooth"
+                });
+            }
         });
     });
+
 });
+
 
 /* ==========================
    CARRUSEL CERTIFICADOS
@@ -64,31 +77,41 @@ function moverCarrusel(direccion) {
     const track = document.getElementById("track");
     const slides = document.querySelectorAll(".slide");
 
+    if (!track || slides.length === 0) return;
+
     indice += direccion;
 
-    if (indice < 0) {
-        indice = slides.length - 1;
-    }
+    if (indice < 0) indice = slides.length - 1;
+    if (indice >= slides.length) indice = 0;
 
-    if (indice >= slides.length) {
-        indice = 0;
-    }
-
-    track.style.transform = `translateX(-${indice * 100}%)`;
+    track.style.transform = "translateX(-" + (indice * 100) + "%)";
 }
 
-/* Imagen grande */
+
+/* ==========================
+   IMAGEN GRANDE
+========================== */
 
 function abrirImagen(src) {
-    document.getElementById("modalImagen").style.display = "flex";
-    document.getElementById("imgGrande").src = src;
+    const modal = document.getElementById("modalImagen");
+    const img = document.getElementById("imgGrande");
+
+    if (!modal || !img) return;
+
+    img.src = src;
+    modal.style.display = "flex";
 }
 
 function cerrarImagen() {
-    document.getElementById("modalImagen").style.display = "none";
+    const modal = document.getElementById("modalImagen");
+
+    if (modal) {
+        modal.style.display = "none";
+    }
 }
 
-/* Hacer funciones globales para HTML onclick */
+
+/* Global */
 window.moverCarrusel = moverCarrusel;
 window.abrirImagen = abrirImagen;
 window.cerrarImagen = cerrarImagen;
