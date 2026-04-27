@@ -170,20 +170,26 @@
         </ul>
     </section>
 
-<section id="contacto">
+<section id="certificados">
     <h2>Certificados</h2>
 
-    <div class="carrusel-certificados">
+    <div class="carrusel-container">
 
-        <div class="certificado">
-            <img src="curso_git.JPG" alt="Certificado Git y GitHub">
-            <p>Curso Git y GitHub</p>
+        <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
+
+        <div class="carrusel-track" id="track">
+
+            <div class="slide">
+                <img src="curso_git.JPG" alt="Curso Git" onclick="abrirImagen(this.src)">
+            </div>
+
+            <div class="slide">
+                <img src="curso_python.JPG" alt="Curso Python" onclick="abrirImagen(this.src)">
+            </div>
+
         </div>
 
-        <div class="certificado">
-            <img src="curso_python.JPG" alt="Certificado Python">
-            <p>Curso Python</p>
-        </div>
+        <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
 
     </div>
 </section>
