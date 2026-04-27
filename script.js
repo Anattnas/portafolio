@@ -87,3 +87,8 @@ function abrirImagen(src) {
 function cerrarImagen() {
     document.getElementById("modalImagen").style.display = "none";
 }
+
+/* Hacer funciones globales para HTML onclick */
+window.moverCarrusel = moverCarrusel;
+window.abrirImagen = abrirImagen;
+window.cerrarImagen = cerrarImagen;
