@@ -96,8 +96,6 @@ function abrirImagen(src) {
     const modal = document.getElementById("modalImagen");
     const img = document.getElementById("imgGrande");
 
-    if (!modal || !img) return;
-
     img.src = src;
     modal.style.display = "flex";
 }
