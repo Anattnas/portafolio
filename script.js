@@ -53,3 +53,37 @@ document.querySelectorAll("nav a").forEach(enlace => {
         });
     });
 });
+
+/* ==========================
+   CARRUSEL CERTIFICADOS
+========================== */
+
+let indice = 0;
+
+function moverCarrusel(direccion) {
+    const track = document.getElementById("track");
+    const slides = document.querySelectorAll(".slide");
+
+    indice += direccion;
+
+    if (indice < 0) {
+        indice = slides.length - 1;
+    }
+
+    if (indice >= slides.length) {
+        indice = 0;
+    }
+
+    track.style.transform = `translateX(-${indice * 100}%)`;
+}
+
+/* Imagen grande */
+
+function abrirImagen(src) {
+    document.getElementById("modalImagen").style.display = "flex";
+    document.getElementById("imgGrande").src = src;
+}
+
+function cerrarImagen() {
+    document.getElementById("modalImagen").style.display = "none";
+}
